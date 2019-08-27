@@ -22,7 +22,7 @@ ipcMain.on('abrir-janela-sobre', () => {//Escuta o evento passado no JS
   if(sobreWindow == null){
     sobreWindow = new BrowserWindow({
         width: 300,
-        height: 220,
+        height: 240,
         alwaysOnTop: true, //Permiti que o browser fica acima de todas as outras
         frame: false
     });
