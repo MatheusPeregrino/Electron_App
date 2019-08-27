@@ -1,20 +1,18 @@
 const { ipcRenderer, shell } = require('electron');
-//ipcRenderer comunica o processo de render com o main
-const process = require('process');
+    const process = require('process');
 
-let linkFechar = document.querySelector('#link-fechar');
-let linkLinkedin = document.querySelector('#link-linkedin');
+let linkFechar = document.querySelector("#link-fechar");
+let linkTwitter = document.querySelector("#link-twitter");
 let versaoElectron = document.querySelector('#versao-electron');
 
 window.onload = function(){
-  versaoElectron.textContent = process.versions.electron;
+    versaoElectron.textContent = process.versions.electron;
 }
 
-linkLinkedin.addEventListener('click', function(){
-  shell.openExternal("https://www.linkedin.com/in/matheus-pereira-dev/");
-  //Abre o programa no navegador padrão
-});
+linkFechar.addEventListener('click', function () {
+    ipcRenderer.send('fechar-janela-sobre');
+})
 
-linkFechar.addEventListener('click', function() {
-  ipcRenderer.send('fechar-janela-sobre');
-});
+linkTwitter.addEventListener('click', function () {
+    shell.openExternal("https://www.twitter.com/dquintanilhas");
+})
