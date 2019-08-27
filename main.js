@@ -23,7 +23,8 @@ ipcMain.on('abrir-janela-sobre', () => {//Escuta o evento passado no JS
     sobreWindow = new BrowserWindow({
         width: 300,
         height: 220,
-        alwaysOnTop: true
+        alwaysOnTop: true, //Permiti que o browser fica acima de todas as outras
+        frame: false
     });
     sobreWindow.on('closed', () =>{//Após fechar a janela não destroi o objeto
       sobreWindow = null;
@@ -31,4 +32,8 @@ ipcMain.on('abrir-janela-sobre', () => {//Escuta o evento passado no JS
   }
 
     sobreWindow.loadURL(`file://${__dirname}/app/sobre.html`);
+});
+
+ipcMain.on('fechar-janela-sobre', () =>{
+  sobreWindow.close();
 });
